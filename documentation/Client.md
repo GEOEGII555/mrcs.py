@@ -13,6 +13,8 @@ The session ID of the bot.
 The username of the bot. Don't modify directly, see below for a function that changes this.
 ### `user_id: str`
 The user ID of the bot.
+### `login_key: str`
+The MRCS login key. Must be valid.
 
 ## Functions:
 
