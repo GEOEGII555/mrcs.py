@@ -1,10 +1,10 @@
-import w96msgroom
+import mrcs
 
-class EvalBot(w96msgroom.Client):
+class EvalBot(mrcs.Client):
     def __init__(self) -> None:
         super().__init__("eb#eval | EvalBot")
 
-    def on_text_message(self, user: w96msgroom.User, content: str):
+    def on_text_message(self, user: mrcs.User, content: str):
         args = content.split(" ")
         if args[0] == "eb#eval":
             self.send_text_message("Executed!")

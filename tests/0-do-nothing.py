@@ -1,6 +1,6 @@
-import w96msgroom
+import mrcs
 
-client = w96msgroom.Client("doNothingBot")
+client = mrcs.Client("doNothingBot")
 client.run()
 try:
     while True:

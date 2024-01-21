@@ -1,11 +1,11 @@
 [project]
-name = "w96msgroom"
+name = "mrcs"
 version = "0.1.4-dev"
 dynamic = ["dependencies"]
 authors = [
   { name="GEOEGII555", email="geoegii2001555@gmail.com" },
 ]
-description = "A library to create bots for Windows 96 msgroom"
+description = "A library to create bots for MRCS (custom msgroom server)"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -14,8 +14,8 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/GEOEGII555/w96msgroom.py"
-"Bug Tracker" = "https://github.com/GEOEGII555/w96msgroom.py/issues"
+"Homepage" = "https://github.com/GEOEGII555/mrcs.py"
+"Bug Tracker" = "https://github.com/GEOEGII555/mrcs.py/issues"
 
 [build-system]
 requires = ["setuptools>=61.0", "setuptools-scm"]
