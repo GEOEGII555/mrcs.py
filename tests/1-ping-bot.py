@@ -1,5 +1,7 @@
 import mrcs
 
+mrcs.constants.WS_URL = "put your websocket URL here"
+
 class PingBot(mrcs.Client):
     def __init__(self) -> None:
         super().__init__("pb#ping | PingBot")
