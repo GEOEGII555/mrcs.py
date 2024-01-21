@@ -15,6 +15,8 @@ The username of the bot. Don't modify directly, see below for a function that ch
 The user ID of the bot.
 ### `login_key: str`
 The MRCS login key. Must be valid.
+### `bot_badge: bool`
+If you set this to `True`, your bot will get a badge saying that it's, well, a bot.
 
 ## Functions:
 
