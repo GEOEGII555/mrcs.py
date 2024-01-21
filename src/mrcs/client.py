@@ -12,13 +12,15 @@ class Client:
     """
     sio: socketio.Client
     online_users: list[User]
+    bot_badge: bool
     session_id: str
     login_key: str
     username: str
     user_id: str
 
-    def __init__(self, username: str, login_key: str = None) -> None:
+    def __init__(self, username: str, login_key: str = None, bot_badge: bool = False) -> None:
         self.sio = socketio.Client(reconnection=True)
+        self.bot_badge = bot_badge
         self.login_key = login_key
         self.username = username
         self.online_users = []
@@ -180,6 +182,8 @@ class Client:
         auth = {"user": self.username}
         if self.login_key:
             auth["loginkey"] = self.login_key
+        if self.bot_badge:
+            auth["bot"] = True
         self.sio.emit("auth", auth)
 
     def run(self) -> None:
