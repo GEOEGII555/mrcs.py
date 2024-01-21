@@ -13,11 +13,13 @@ class Client:
     sio: socketio.Client
     online_users: list[User]
     session_id: str
+    login_key: str
     username: str
     user_id: str
 
-    def __init__(self, username: str) -> None:
+    def __init__(self, username: str, login_key: str = None) -> None:
         self.sio = socketio.Client(reconnection=True)
+        self.login_key = login_key
         self.username = username
         self.online_users = []
         self.session_id = ""
@@ -175,7 +177,10 @@ class Client:
 
     def _connected(self) -> None:
         self.update_online_users()
-        self.sio.emit("auth", {"user": self.username})
+        auth = {"user": self.username}
+        if self.login_key:
+            auth["loginkey"] = self.login_key
+        self.sio.emit("auth", auth)
 
     def run(self) -> None:
         """
