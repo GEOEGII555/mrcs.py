@@ -12,8 +12,8 @@ class PrefixBot(Client):
     prefix: str
     commands: dict[str]
 
-    def __init__(self, username: str, prefix: str) -> None:
-        super().__init__(username)
+    def __init__(self, username: str, prefix: str, login_key: str = None) -> None:
+        super().__init__(username, login_key)
         if len(prefix) > 2048:
             raise ValueError("prefix is longer than 2048 characters")
         self.prefix = prefix
