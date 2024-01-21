@@ -195,7 +195,12 @@ class Client:
         self.sio.on("nick-changed", self._on_user_change_message)
         self.sio.on("message", self._on_text_chat_message)
         self.sio.on("connect", self._connected)
-        self.sio.connect(constants.WS_URL, transports=['websocket'])
+        if not constants.WS_URL:
+            raise RuntimeError("Please define the mrcs.constants.WS_URL variable with the websocket URL to your MRCS instance.")
+        try:
+            self.sio.connect(constants.WS_URL, transports=['websocket'])
+        except Exception:
+            self.sio.connect(constants.WS_URL, transports=['polling'])
 
     def stop(self) -> None:
         """
