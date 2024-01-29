@@ -66,7 +66,7 @@ class PrefixBot(Client):
             [PREFIX]help commandName - get help on a specific command.
         """
         if len(arguments) < 1:
-            help_index = f"""**{self.username} - a cool msgroom bot.** (made with [w96msgroom](https://github.com/GEOEGII555/w96msgroom.py))
+            help_index = f"""**{self.username} - a cool msgroom bot.** (made with [mrcs.py](https://github.com/GEOEGII555/mrcs.py))
 *To get help on a specific command, invoke {self.prefix}help commandName.*\n"""
             for K in self.commands:
                 help_index += K
