@@ -10,20 +10,28 @@ class Client:
     """
     The base for all the bots ✨
     """
-    sio: socketio.Client
     online_users: list[User]
+    channel_password: str
+    sio: socketio.Client
+    disconnect_all: bool
     bot_badge: bool
     session_id: str
+    staff_key: str
     login_key: str
     username: str
+    channel: str
     user_id: str
 
-    def __init__(self, username: str, login_key: str = None, bot_badge: bool = False) -> None:
+    def __init__(self, username: str, login_key: str = None, bot_badge: bool = False, channel: str = None, disconnect_all: bool = False, channel_password: str = None, staff_key: str = None) -> None:
         self.sio = socketio.Client(reconnection=True)
+        self.channel_password = channel_password
+        self.disconnect_all = disconnect_all
+        self.staff_key = staff_key
         self.bot_badge = bot_badge
         self.login_key = login_key
         self.username = username
         self.online_users = []
+        self.channel = channel
         self.session_id = ""
         self.user_id = ""
 
@@ -187,6 +195,14 @@ class Client:
             auth["loginkey"] = self.login_key
         if self.bot_badge:
             auth["bot"] = True
+        if self.channel:
+            auth["channel"] = self.channel
+        if self.disconnect_all:
+            auth["disconnectAll"] = True
+        if self.channel_password:
+            auth["channelPassword"] = self.channel_password
+        if self.staff_key:
+            auth["staff"] = self.staff_key
         self.sio.emit("auth", auth)
 
     def run(self) -> None:
