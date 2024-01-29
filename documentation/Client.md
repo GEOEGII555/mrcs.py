@@ -17,6 +17,14 @@ The user ID of the bot.
 The MRCS login key. Must be valid.
 ### `bot_badge: bool`
 If you set this to `True`, your bot will get a badge saying that it's, well, a bot.
+### `channel: str`
+The channel to which you would like to connect. (Optional)
+### `channel_password: str`
+Password for the channel.
+### `disconnect_all: bool`
+If set to True, will disconnect all other sessions.
+### `staff_key: str`
+(staff) Your staff key.
 
 ## Functions:
 
